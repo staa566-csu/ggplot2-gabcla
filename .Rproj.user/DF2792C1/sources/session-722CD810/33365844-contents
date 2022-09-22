@@ -1,0 +1,78 @@
+p_titles4
+p_titles <- ggplot(data = title2,
+mapping = aes(x = imdb_score,
+y = tmdb_score,
+color = type)) +
+geom_point() +
+theme_light() +
+theme(legend.position = "none") +
+theme_tufte(base_size=12, base_family = "sans") +
+geom_smooth(method = "loess") +
+scale_x_discrete(name = "IMDB Score", limits = seq(0,10, by = 0.5), breaks = seq(0,10, by = 1)) +
+scale_y_discrete(name = "TMDB Score", limits = seq(0,10, by = 0.5), breaks = seq(0,10, by = 1)) +
+theme(legend.position =  c(0.87, 0.25))
+# For some reason could not get the labeling working - adding the legend back in
+# line_ends <- ggplot_build(p_titles)$data[[2]] %>%
+#   group_by(colour) %>%
+#   filter(x==max(x))
+# #add type label
+# line_ends$titles <- title2 %>% pull(type) %>%
+#   unique() %>%
+#   as.character() %>%
+#   sort()
+#
+# p_titles <- p_titles + ggrepel::geom_label_repel(data = line_ends,
+#                                                  aes(x = 10^line_ends$x,
+#                                                      y = line_ends$y,
+#                                                      lable = titles),
+#                                                  nudge_x = 1,
+#                                                  label.size = NA,
+#                                                  fill = alpha(c("white"),0))
+p_titles <- p_titles + scale_color_colorblind()
+p_titles <- p_titles + ggtitle("TMDB Score by IMDB Score by Title Type")
+p_titles
+p_titles2 <- ggplot(data = title3,
+mapping = aes(x = imdb_score,
+y = imdb_votes,
+color = type)) +
+geom_point() +
+theme_minimal() +
+theme(legend.position = "none") +
+theme_tufte(base_size=12, base_family = "sans") +
+geom_smooth(method = "loess") +
+scale_x_discrete(name = "IMDB Score", limits = seq(0,10, by = 0.5), breaks = seq(0,10, by = 1)) +
+scale_y_continuous(name = "IMDB Votes") +
+theme(legend.position =  c(.3, .4)) +
+scale_color_fivethirtyeight() +
+ggtitle("IMDB Votes by IMDB Score by Title Type")
+p_titles2
+p_titles3 <- ggplot(data = title4,
+mapping = aes(x = imdb_score,
+y = runtime,
+color = type)) +
+geom_point() +
+theme_minimal() +
+theme(legend.position = "none") +
+theme_tufte(base_size=11, base_family = "sans") +
+geom_smooth(method = "loess") +
+scale_x_discrete(name = "IMDB Score", limits = seq(0,10, by = 0.5), breaks = seq(0,10, by = 1)) +
+scale_y_continuous(name = "Runtime") +
+theme(legend.position =  c(.25, .8)) +
+scale_color_few() +
+ggtitle("Runtime by IMDB Score by Title Type")
+p_titles3
+p_titles4 <- ggplot(data = title5,
+mapping = aes(x = runtime,
+y = imdb_votes,
+color = type)) +
+geom_point() +
+theme_minimal() +
+theme(legend.position = "none") +
+theme_tufte(base_size=12, base_family = "sans") +
+geom_smooth(method = "loess") +
+scale_x_continuous(name = "Runtime") +
+scale_y_continuous(name = "IMDB Votes") +
+theme(legend.position =  c(.15, .7)) +
+scale_color_discrete() +
+ggtitle("IMDB Votes by Runtime by Title Type")
+p_titles4
