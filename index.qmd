@@ -1,6 +1,6 @@
 ---
 title: "Homework 1 - ggplot"
-author: "Gabrielle Clary"
+author: "Gabrielle J Clary"
 format: 
   html:
     self-contained: true
