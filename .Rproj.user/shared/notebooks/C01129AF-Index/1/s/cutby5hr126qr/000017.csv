@@ -1,0 +1,4 @@
+"0","title5 <- titles[!(is.na(titles$runtime) | titles$runtime ==""""),]
+title5 <- title5[!(is.na(title3$imdb_votes) | title5$imdb_votes ==""""),]
+"
+"2","Warning: longer object length is not a multiple of shorter object length"
