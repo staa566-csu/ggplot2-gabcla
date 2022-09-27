@@ -1,9 +1,15 @@
 ---
-title: "index"
+title: "Homework 1 - ggplot"
 author: "Gabrielle Clary"
-format: html
+format: 
+  html:
+    self-contained: true
 editor: visual
 ---
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
 
 ## R Code
 
@@ -162,7 +168,6 @@ p_titles4 <- ggplot(data = title5,
   ggtitle("IMDB Votes by Runtime by Title Type")
 
 p_titles4
-
 ```
 
 It does look like the smaller the runtime the more votes a title has on IMDB.
